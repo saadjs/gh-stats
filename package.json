@@ -1,0 +1,51 @@
+{
+  "name": "@saadjs/gh-stats",
+  "author": "Saad Bash",
+  "repository": {
+    "url": "github.com/saadjs/gh-stats"
+  },
+  "version": "1.0.0",
+  "description": "Generate GitHub language stats as JSON or SVG",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "gh-stats": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "prepare": "husky",
+    "start": "node dist/cli.js",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.19.7",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
+    "@vitest/ui": "^2.0.5",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3",
+    "vitest": "^2.0.5"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "**/*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "packageManager": "pnpm@10.28.2"
+}
