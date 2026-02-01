@@ -68,6 +68,11 @@ describe("CLI Integration Tests", () => {
     expect(cliContent).toContain("fs.writeFileSync");
   });
 
+  it("should support --in option for reading stats JSON", () => {
+    const cliContent = fs.readFileSync("src/cli.ts", "utf8");
+    expect(cliContent).toContain('case "--in"');
+  });
+
   it("should support --include-forks option", () => {
     const cliContent = fs.readFileSync("src/cli.ts", "utf8");
     expect(cliContent).toContain('case "--include-forks"');
@@ -91,5 +96,32 @@ describe("CLI Integration Tests", () => {
   it("should support --all option for including all languages", () => {
     const cliContent = fs.readFileSync("src/cli.ts", "utf8");
     expect(cliContent).toContain('case "--all"');
+  });
+
+  it("should allow --in without a token", () => {
+    const statsPath = path.join(tmpDir, "stats.json");
+    const stats = {
+      totalBytes: 100,
+      languages: [
+        { language: "TypeScript", bytes: 60, percent: 60 },
+        { language: "JavaScript", bytes: 40, percent: 40 },
+      ],
+      generatedAt: new Date().toISOString(),
+      repositoryCount: 2,
+      includedForks: false,
+      includedArchived: true,
+      includedMarkdown: false,
+    };
+
+    fs.writeFileSync(statsPath, JSON.stringify(stats), "utf8");
+
+    const result = execSync(`node dist/cli.js --in ${statsPath} --json`, {
+      encoding: "utf8",
+      env: { ...process.env, GITHUB_TOKEN: "", GH_TOKEN: "" },
+      stdio: ["pipe", "pipe", "pipe"],
+    });
+
+    expect(result).toContain('"languages"');
+    expect(result).toContain('"totalBytes"');
   });
 });
