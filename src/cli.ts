@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /// <reference types="node" />
 import fs from "fs";
 import path from "path";
@@ -190,7 +189,8 @@ async function run(): Promise<void> {
     });
   }
 
-  const output = options.format === "svg" ? renderSvg(stats, { theme: options.theme }) : renderJson(stats);
+  const output =
+    options.format === "svg" ? renderSvg(stats, { theme: options.theme }) : renderJson(stats);
 
   if (options.out) {
     const outPath = path.resolve(process.cwd(), options.out);
