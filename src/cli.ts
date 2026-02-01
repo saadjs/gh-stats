@@ -3,7 +3,7 @@
 import fs from "fs";
 import path from "path";
 import { getLanguageStats } from "./index.js";
-import { renderJson, renderSvg } from "./renderers.js";
+import { renderJson, renderSvg, type ThemeName } from "./renderers/index.js";
 
 interface CliOptions {
   token?: string;
@@ -14,6 +14,7 @@ interface CliOptions {
   top?: number;
   all?: boolean;
   out?: string;
+  theme?: ThemeName;
 }
 
 function printHelp(): void {
@@ -25,6 +26,7 @@ Options:
   --format <json|svg>     Output format (default: json)
   --json                  Output JSON format
   --svg                   Output SVG format
+  --theme <name>          SVG theme: default, phosphor, infrared (default: default)
   --include-forks         Include forked repositories
   --exclude-archived      Exclude archived repositories
   --include-markdown      Include Markdown/MDX in language stats
@@ -33,10 +35,17 @@ Options:
   --out <path>            Write output to a file
   --help                  Show this help message
 
+Themes:
+  default     Clean, modern light theme
+  phosphor    Retro CRT terminal with green phosphor glow
+  infrared    Thermal heat map visualization
+  outline     Minimalist stroke-only design
+
 Examples:
   gh-stats --svg --out stats.svg
+  gh-stats --svg --theme phosphor --out stats.svg
+  gh-stats --svg --theme infrared --out stats.svg
   gh-stats --format json --top 8
-  gh-stats --svg --all --out stats.svg
 `;
 
   console.log(help.trim());
@@ -96,6 +105,10 @@ function parseArgs(argv: string[]): CliOptions {
         options.out = argv[i + 1];
         i += 1;
         break;
+      case "--theme":
+        options.theme = argv[i + 1] as ThemeName;
+        i += 1;
+        break;
       default:
         if (arg.startsWith("--")) {
           console.error(`Unknown option: ${arg}`);
@@ -127,7 +140,7 @@ async function run(): Promise<void> {
     all: options.all,
   });
 
-  const output = options.format === "svg" ? renderSvg(stats) : renderJson(stats);
+  const output = options.format === "svg" ? renderSvg(stats, { theme: options.theme }) : renderJson(stats);
 
   if (options.out) {
     const outPath = path.resolve(process.cwd(), options.out);
