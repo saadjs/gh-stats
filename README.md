@@ -44,6 +44,20 @@ GITHUB_TOKEN=your_token gh-stats
 GITHUB_TOKEN=your_token gh-stats --svg --out stats.svg
 ```
 
+### Cache JSON once, render SVG offline
+
+Generate the JSON once, then re-render SVGs with different themes without hitting the GitHub API.
+
+```bash
+GITHUB_TOKEN=your_token gh-stats --json --out data.json
+```
+
+```bash
+gh-stats --svg --theme phosphor --in data.json --out stats.svg
+gh-stats --svg --theme infrared --in data.json --out stats.svg
+gh-stats --svg --theme pie --in data.json --out stats.svg
+```
+
 ## Keeping stats updated (profile README)
 
 Use a scheduled GitHub Actions workflow to regenerate `stats.svg` and commit it back to the
@@ -106,6 +120,7 @@ Notes:
 - `--format <json|svg>` choose output format
 - `--json` output JSON
 - `--svg` output SVG
+- `--in <path>` read precomputed stats JSON (skips GitHub API)
 - `--include-forks` include forked repositories (default: excluded)
 - `--exclude-archived` exclude archived repositories (default: included)
 - `--include-markdown` include Markdown/MDX in language stats (default: excluded)
@@ -116,6 +131,12 @@ Notes:
 ## Token scopes
 
 For private repos, use a token with `repo` scope. For public-only, `public_repo` is enough.
+
+## Testing
+
+```bash
+pnpm test
+```
 
 ## Notes
 
