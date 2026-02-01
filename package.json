@@ -20,7 +20,7 @@
     "format:check": "prettier . --check",
     "prepare": "husky",
     "start": "node dist/cli.js",
-    "test": "vitest",
+    "test": "vitest run",
     "test:ui": "vitest --ui"
   },
   "keywords": [],
