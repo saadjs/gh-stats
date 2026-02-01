@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { renderJson, renderSvg } from "../renderers.js";
+import { renderJson, renderSvg } from "../renderers/index.js";
 import type { LanguageStatsResult } from "../types.js";
 
 describe("Renderers", () => {
