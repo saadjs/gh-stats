@@ -105,8 +105,33 @@ describe("Renderers", () => {
 
     it("should include metadata about generation", () => {
       const output = renderSvg(mockStats);
-      expect(output).toContain("2026-01-30T12:00:00.000Z");
+      expect(output).toContain("2026-01-30"); // date only, no timestamp
       expect(output).toContain("5"); // repository count
+    });
+
+    it("should group remaining languages into Other for pie theme", () => {
+      const pieStats: LanguageStatsResult = {
+        ...mockStats,
+        totalBytes: 100,
+        languages: [
+          { language: "TypeScript", bytes: 40, percent: 40 },
+          { language: "JavaScript", bytes: 20, percent: 20 },
+          { language: "Python", bytes: 15, percent: 15 },
+          { language: "Dart", bytes: 10, percent: 10 },
+          { language: "CSS", bytes: 5, percent: 5 },
+          { language: "HTML", bytes: 10, percent: 10 },
+        ],
+      };
+
+      const output = renderSvg(pieStats, { theme: "pie" });
+      expect(output).toContain("Other");
+      expect(output).toContain("10.0%");
+    });
+
+    it("should show date-only footer for pie theme", () => {
+      const output = renderSvg(mockStats, { theme: "pie" });
+      expect(output).toContain("Generated 2026-01-30");
+      expect(output).not.toContain("T12:00:00");
     });
   });
 

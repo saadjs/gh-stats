@@ -1,10 +1,10 @@
 import type { LanguageStatsResult } from "../types.js";
 import type { SvgOptions } from "./types.js";
 import { themes } from "./themes.js";
-import { formatBytes } from "./utils.js";
 import { renderPhosphorLayout } from "./layouts/phosphor.js";
 import { renderInfraredLayout } from "./layouts/infrared.js";
 import { renderOutlineLayout } from "./layouts/outline.js";
+import { renderPieLayout } from "./layouts/pie.js";
 
 export function renderSvg(stats: LanguageStatsResult, options: SvgOptions = {}): string {
   const width = options.width ?? 600;
@@ -20,6 +20,9 @@ export function renderSvg(stats: LanguageStatsResult, options: SvgOptions = {}):
   }
   if (themeName === "outline") {
     return renderOutlineLayout(stats, theme, width);
+  }
+  if (themeName === "pie") {
+    return renderPieLayout(stats, theme, width);
   }
 
   // Default theme: clean bar chart layout
@@ -51,8 +54,7 @@ export function renderSvg(stats: LanguageStatsResult, options: SvgOptions = {}):
   const maxPercent = Math.max(...rows.map((row) => row.percent), 0);
 
   const header = "GitHub Language Stats";
-  const subheader = `Generated ${stats.generatedAt}`;
-  const statSummary = `${formatBytes(stats.totalBytes)} total`;
+  const subheader = `Generated ${stats.generatedAt.slice(0, 10)}`;
   const repoSummary = `${stats.repositoryCount} repos`;
   const footerParts = [
     stats.includedForks ? "Forks included" : "Forks excluded",
@@ -104,7 +106,7 @@ export function renderSvg(stats: LanguageStatsResult, options: SvgOptions = {}):
   <rect x="8.5" y="8.5" width="${width - 17}" height="${height - 17}" fill="none" stroke="${borderColor}" rx="12" />
   <text x="${paddingX}" y="${paddingX + 6}" font-size="16" fill="${labelColor}" font-weight="600">${header}</text>
   <text x="${paddingX}" y="${paddingX + 24}" font-size="11" fill="${headerColor}" class="subtitle">${subheader}</text>
-  <text x="${width - rightPadding}" y="${paddingX + 8}" font-size="11" fill="${headerColor}" text-anchor="end">${repoSummary} • ${statSummary}</text>
+  <text x="${width - rightPadding}" y="${paddingX + 8}" font-size="11" fill="${headerColor}" text-anchor="end">${repoSummary}</text>
   ${bars}
   <text x="${paddingX}" y="${height - 12}" font-size="10" fill="${footerColor}">${footer}</text>
 </svg>`;

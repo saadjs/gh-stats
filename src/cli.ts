@@ -26,7 +26,7 @@ Options:
   --format <json|svg>     Output format (default: json)
   --json                  Output JSON format
   --svg                   Output SVG format
-  --theme <name>          SVG theme: default, phosphor, infrared (default: default)
+  --theme <name>          SVG theme: default, phosphor, infrared, outline, pie (default: default)
   --include-forks         Include forked repositories
   --exclude-archived      Exclude archived repositories
   --include-markdown      Include Markdown/MDX in language stats
@@ -40,11 +40,13 @@ Themes:
   phosphor    Retro CRT terminal with green phosphor glow
   infrared    Thermal heat map visualization
   outline     Minimalist stroke-only design
+  pie         Warm donut chart with top 5 + other grouping
 
 Examples:
   gh-stats --svg --out stats.svg
   gh-stats --svg --theme phosphor --out stats.svg
   gh-stats --svg --theme infrared --out stats.svg
+  gh-stats --svg --theme pie --out stats.svg
   gh-stats --format json --top 8
 `;
 

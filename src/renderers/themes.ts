@@ -123,6 +123,34 @@ export const themes: Record<string, Theme> = {
     effects: {},
     footerSeparator: " · ",
   },
+  pie: {
+    name: "pie",
+    palette: [
+      "#2F4B7C",
+      "#665191",
+      "#A05195",
+      "#D45087",
+      "#F95D6A",
+      "#FF7C43",
+      "#FFA600",
+      "#2E86AB",
+      "#1B998B",
+      "#E84855",
+    ],
+    background: "#FFF7F2",
+    backgroundSecondary: "#FDEDE4",
+    headerColor: "#6B4C3B",
+    labelColor: "#2B1B12",
+    footerColor: "#8A6A5A",
+    borderColor: "#E7C9B8",
+    barTrackColor: "#FDEDE4",
+    fontFamily: "'Manrope', 'Segoe UI', sans-serif",
+    fontImport:
+      "@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&amp;display=swap');",
+    borderRadius: 16,
+    effects: {},
+    footerSeparator: " • ",
+  },
 };
 
 export type ThemeName = keyof typeof themes;
