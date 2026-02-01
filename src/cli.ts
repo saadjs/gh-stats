@@ -45,6 +45,7 @@ Themes:
   pie         Warm donut chart with top 5 + other grouping
 
 Examples:
+  npx @saadjs/gh-stats --svg --out stats.svg
   gh-stats --svg --out stats.svg
   gh-stats --svg --theme phosphor --out stats.svg
   gh-stats --svg --theme infrared --out stats.svg
