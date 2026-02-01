@@ -97,6 +97,26 @@ GITHUB_TOKEN=your_token gh-stats
 GITHUB_TOKEN=your_token gh-stats --svg --out stats.svg
 ```
 
+<details>
+<summary>Theme previews</summary>
+
+**--theme default**
+![--theme default preview](./assets/theme-default.svg)
+
+**--theme phosphor**
+![--theme phosphor preview](./assets/theme-phosphor.svg)
+
+**--theme infrared**
+![--theme infrared preview](./assets/theme-infrared.svg)
+
+**--theme outline**
+![--theme outline preview](./assets/theme-outline.svg)
+
+**--theme pie**
+![--theme pie preview](./assets/theme-pie.svg)
+
+</details>
+
 ### Cache JSON once, render SVG offline
 
 Generate the JSON once, then re-render SVGs with different themes without hitting the GitHub API.
