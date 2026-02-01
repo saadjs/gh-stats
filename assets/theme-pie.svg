@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="574" viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub language stats">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&amp;display=swap');
+    text { font-family: 'Manrope', 'Segoe UI', sans-serif; }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF7F2" />
+      <stop offset="100%" stop-color="#FDEDE4" />
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="100%" height="100%" fill="url(#bg)" rx="16" />
+  <rect x="10" y="10" width="580" height="340" fill="none" stroke="#E7C9B8" stroke-width="1" rx="12" />
+
+  <text x="24" y="34" font-size="16" fill="#2B1B12" font-weight="600">Top Languages</text>
+  <text x="576" y="34" font-size="11" fill="#6B4C3B" text-anchor="end">48 repos • 6 slices</text>
+
+  <path d="M 185 85 A 110 110 0 0 1 293.05159758015577 215.61194460442974 L 239.02579879007789 205.30597230221485 A 55 55 0 0 0 185 140 Z" fill="#2F4B7C" stroke="#FDEDE4" stroke-width="1" /><path d="M 293.05159758015577 215.61194460442974 A 110 110 0 0 1 212.355887588134 301.5441477241494 L 198.677943794067 248.2720738620747 A 55 55 0 0 0 239.02579879007789 205.30597230221485 Z" fill="#665191" stroke="#FDEDE4" stroke-width="1" /><path d="M 212.355887588134 301.5441477241494 A 110 110 0 0 1 126.05905255231039 287.87607180522167 L 155.5295262761552 241.43803590261084 A 55 55 0 0 0 198.677943794067 248.2720738620747 Z" fill="#A05195" stroke="#FDEDE4" stroke-width="1" /><path d="M 126.05905255231039 287.87607180522167 A 110 110 0 0 1 78.45585227585059 222.35588758813404 L 131.7279261379253 208.677943794067 A 55 55 0 0 0 155.5295262761552 241.43803590261084 Z" fill="#D45087" stroke="#FDEDE4" stroke-width="1" /><path d="M 78.45585227585059 222.35588758813404 A 110 110 0 0 1 82.72458655229232 154.5062992046855 L 133.86229327614615 174.75314960234275 A 55 55 0 0 0 131.7279261379253 208.677943794067 Z" fill="#F95D6A" stroke="#FDEDE4" stroke-width="1" /><path d="M 82.72458655229232 154.5062992046855 A 110 110 0 0 1 184.99999999999997 85 L 185 140 A 55 55 0 0 0 133.86229327614615 174.75314960234275 Z" fill="#FF7C43" stroke="#FDEDE4" stroke-width="1" />
+  <circle cx="185" cy="195" r="49" fill="#FFF7F2" />
+  <text x="185" y="191" font-size="14" fill="#2B1B12" text-anchor="middle" font-weight="600">
+    Python
+  </text>
+  <text x="185" y="209" font-size="11" fill="#8A6A5A" text-anchor="middle">
+    28.0%
+  </text>
+
+  <text x="360" y="64" font-size="11" fill="#8A6A5A" letter-spacing="1">DISTRIBUTION</text>
+  
+    <circle cx="360" cy="85" r="5" fill="#2F4B7C" />
+    <text x="374" y="90" font-size="12" fill="#2B1B12">Python</text>
+    <text x="576" y="90" font-size="12" fill="#6B4C3B" text-anchor="end">28.0%</text>
+    <circle cx="360" cy="109" r="5" fill="#665191" />
+    <text x="374" y="114" font-size="12" fill="#2B1B12">Go</text>
+    <text x="576" y="114" font-size="12" fill="#6B4C3B" text-anchor="end">18.0%</text>
+    <circle cx="360" cy="133" r="5" fill="#A05195" />
+    <text x="374" y="138" font-size="12" fill="#2B1B12">Rust</text>
+    <text x="576" y="138" font-size="12" fill="#6B4C3B" text-anchor="end">13.0%</text>
+    <circle cx="360" cy="157" r="5" fill="#D45087" />
+    <text x="374" y="162" font-size="12" fill="#2B1B12">TypeScript</text>
+    <text x="576" y="162" font-size="12" fill="#6B4C3B" text-anchor="end">12.0%</text>
+    <circle cx="360" cy="181" r="5" fill="#F95D6A" />
+    <text x="374" y="186" font-size="12" fill="#2B1B12">Java</text>
+    <text x="576" y="186" font-size="12" fill="#6B4C3B" text-anchor="end">10.0%</text>
+    <circle cx="360" cy="205" r="5" fill="#FF7C43" />
+    <text x="374" y="210" font-size="12" fill="#2B1B12">Other</text>
+    <text x="576" y="210" font-size="12" fill="#6B4C3B" text-anchor="end">19.0%</text>
+
+  <text x="24" y="344" font-size="10" fill="#8A6A5A">Generated 2026-02-01</text>
+</svg>

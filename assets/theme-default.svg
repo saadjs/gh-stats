@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="574" viewBox="0 0 600 358" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub language stats">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif; }
+    .subtitle { letter-spacing: 0.2px; }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#111827" flood-opacity="0.08" />
+    </filter>
+    <linearGradient id="bar-0" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#6366F1CC" />
+    </linearGradient><linearGradient id="bar-1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#14B8A6" />
+      <stop offset="100%" stop-color="#14B8A6CC" />
+    </linearGradient><linearGradient id="bar-2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F97316" />
+      <stop offset="100%" stop-color="#F97316CC" />
+    </linearGradient><linearGradient id="bar-3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0EA5E9" />
+      <stop offset="100%" stop-color="#0EA5E9CC" />
+    </linearGradient><linearGradient id="bar-4" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F43F5E" />
+      <stop offset="100%" stop-color="#F43F5ECC" />
+    </linearGradient><linearGradient id="bar-5" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22C55E" />
+      <stop offset="100%" stop-color="#22C55ECC" />
+    </linearGradient><linearGradient id="bar-6" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#A855F7CC" />
+    </linearGradient><linearGradient id="bar-7" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#EAB308" />
+      <stop offset="100%" stop-color="#EAB308CC" />
+    </linearGradient><linearGradient id="bar-8" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#64748B" />
+      <stop offset="100%" stop-color="#64748BCC" />
+    </linearGradient><linearGradient id="bar-9" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#EC4899" />
+      <stop offset="100%" stop-color="#EC4899CC" />
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="100%" height="100%" fill="url(#bg)" rx="14" />
+  <rect x="8" y="8" width="584" height="342" fill="#ffffff" rx="12" filter="url(#softShadow)" />
+  <rect x="8.5" y="8.5" width="583" height="341" fill="none" stroke="#E5E7EB" rx="12" />
+  <text x="16" y="22" font-size="16" fill="#111827" font-weight="600">GitHub Language Stats</text>
+  <text x="16" y="40" font-size="11" fill="#6B7280" class="subtitle">Generated 2026-02-01</text>
+  <text x="584" y="24" font-size="11" fill="#6B7280" text-anchor="end">48 repos</text>
+  
+  <text x="16" y="66" font-size="12" fill="#111827">Python (28.0%)</text>
+  <rect x="156" y="52" width="428" height="18" rx="6" fill="#EEF2FF" />
+  <rect x="156" y="52" width="428.00" height="18" rx="6" fill="url(#bar-0)" />
+
+  <text x="16" y="94" font-size="12" fill="#111827">Go (18.0%)</text>
+  <rect x="156" y="80" width="428" height="18" rx="6" fill="#EEF2FF" />
+  <rect x="156" y="80" width="275.14" height="18" rx="6" fill="url(#bar-1)" />
+
+  <text x="16" y="122" font-size="12" fill="#111827">Rust (13.0%)</text>
+  <rect x="156" y="108" width="428" height="18" rx="6" fill="#EEF2FF" />
+  <rect x="156" y="108" width="198.71" height="18" rx="6" fill="url(#bar-2)" />
+
+  <text x="16" y="150" font-size="12" fill="#111827">TypeScript (12.0%)</text>
+  <rect x="156" y="136" width="428" height="18" rx="6" fill="#EEF2FF" />
+  <rect x="156" y="136" width="183.43" height="18" rx="6" fill="url(#bar-3)" />
+
+  <text x="16" y="178" font-size="12" fill="#111827">Java (10.0%)</text>
+  <rect x="156" y="164" width="428" height="18" rx="6" fill="#EEF2FF" />
+  <rect x="156" y="164" width="152.86" height="18" rx="6" fill="url(#bar-4)" />
+
+  <text x="16" y="206" font-size="12" fill="#111827">C# (6.0%)</text>
+  <rect x="156" y="192" width="428" height="18" rx="6" fill="#EEF2FF" />
+  <rect x="156" y="192" width="91.71" height="18" rx="6" fill="url(#bar-5)" />
+
+  <text x="16" y="234" font-size="12" fill="#111827">Shell (4.0%)</text>
+  <rect x="156" y="220" width="428" height="18" rx="6" fill="#EEF2FF" />
+  <rect x="156" y="220" width="61.14" height="18" rx="6" fill="url(#bar-6)" />
+
+  <text x="16" y="262" font-size="12" fill="#111827">Makefile (3.0%)</text>
+  <rect x="156" y="248" width="428" height="18" rx="6" fill="#EEF2FF" />
+  <rect x="156" y="248" width="45.86" height="18" rx="6" fill="url(#bar-7)" />
+
+  <text x="16" y="290" font-size="12" fill="#111827">Lua (3.0%)</text>
+  <rect x="156" y="276" width="428" height="18" rx="6" fill="#EEF2FF" />
+  <rect x="156" y="276" width="45.86" height="18" rx="6" fill="url(#bar-8)" />
+
+  <text x="16" y="318" font-size="12" fill="#111827">Markdown (3.0%)</text>
+  <rect x="156" y="304" width="428" height="18" rx="6" fill="#EEF2FF" />
+  <rect x="156" y="304" width="45.86" height="18" rx="6" fill="url(#bar-9)" />
+
+  <text x="16" y="346" font-size="10" fill="#6B7280">Forks included • Archived included • Markdown included</text>
+</svg>

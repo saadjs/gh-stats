@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="574" viewBox="0 0 600 444" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub language stats">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;display=swap');
+    text { font-family: 'IBM Plex Mono', monospace; }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A0E0A"/>
+      <stop offset="100%" stop-color="#0D120D"/>
+    </linearGradient>
+    
+    <filter id="phosphorGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="crtFlicker">
+      <feFlood flood-color="#33FF33" flood-opacity="0.03" result="flood"/>
+      <feComposite in="flood" in2="SourceGraphic" operator="over"/>
+    </filter>
+    <pattern id="scanlines" patternUnits="userSpaceOnUse" width="4" height="4">
+      <rect width="4" height="2" fill="rgba(0,0,0,0.2)"/>
+    </pattern>
+    <pattern id="gridPattern" patternUnits="userSpaceOnUse" width="8" height="8">
+      <rect width="8" height="8" fill="none" stroke="#1A3D1A" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg)" rx="4"/>
+  <rect x="1" y="1" width="598" height="442" fill="none" stroke="#1A3D1A" stroke-width="2" rx="4"/>
+  <rect width="100%" height="100%" fill="url(#gridPattern)" rx="4" opacity="0.3"/>
+
+  <!-- Header -->
+  <text x="20" y="28" font-size="14" fill="#33FF33" font-weight="600" filter="url(#phosphorGlow)">┌─ LANG_STATS.EXE ───────────────────────────────────────────────┐</text>
+  <text x="20" y="50" font-size="11" fill="#22DD22" filter="url(#phosphorGlow)">│ 48 repositories scanned</text>
+
+  <!-- Blinking cursor -->
+  <rect x="560" y="38" width="8" height="12" fill="#33FF33">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Memory blocks -->
+  <rect x="20" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.699993887651743s" repeatCount="indefinite"/>
+      </rect><rect x="38" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.502871491186356s" repeatCount="indefinite"/>
+      </rect><rect x="56" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.44173660995759s" repeatCount="indefinite"/>
+      </rect><rect x="74" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.886098393935141s" repeatCount="indefinite"/>
+      </rect><rect x="92" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.2496409025820876s" repeatCount="indefinite"/>
+      </rect><rect x="110" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.4583910295739084s" repeatCount="indefinite"/>
+      </rect><rect x="128" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.852380939069778s" repeatCount="indefinite"/>
+      </rect><rect x="146" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.169247688840592s" repeatCount="indefinite"/>
+      </rect><rect x="164" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.96828460997411s" repeatCount="indefinite"/>
+      </rect><rect x="182" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.4220412600422634s" repeatCount="indefinite"/>
+      </rect><rect x="200" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.6216433070643212s" repeatCount="indefinite"/>
+      </rect><rect x="218" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5902495850823475s" repeatCount="indefinite"/>
+      </rect><rect x="236" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.8561454802161377s" repeatCount="indefinite"/>
+      </rect><rect x="254" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.686118947144866s" repeatCount="indefinite"/>
+      </rect><rect x="272" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5608125902226107s" repeatCount="indefinite"/>
+      </rect><rect x="290" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.1068767585825476s" repeatCount="indefinite"/>
+      </rect><rect x="308" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.814107926860781s" repeatCount="indefinite"/>
+      </rect><rect x="326" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.768218762992087s" repeatCount="indefinite"/>
+      </rect><rect x="344" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.278776326968827s" repeatCount="indefinite"/>
+      </rect><rect x="362" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.906417658550051s" repeatCount="indefinite"/>
+      </rect><rect x="380" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.29959450843569s" repeatCount="indefinite"/>
+      </rect><rect x="398" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.6725170652253163s" repeatCount="indefinite"/>
+      </rect><rect x="416" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.9549522497393186s" repeatCount="indefinite"/>
+      </rect><rect x="434" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.2774403241267867s" repeatCount="indefinite"/>
+      </rect><rect x="452" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.127015659567097s" repeatCount="indefinite"/>
+      </rect><rect x="470" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.8263312224445354s" repeatCount="indefinite"/>
+      </rect><rect x="488" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.03623175354808s" repeatCount="indefinite"/>
+      </rect><rect x="506" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.3663474950091437s" repeatCount="indefinite"/>
+      </rect><rect x="524" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0989480381141035s" repeatCount="indefinite"/>
+      </rect><rect x="542" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.9790156773465s" repeatCount="indefinite"/>
+      </rect><rect x="560" y="70" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.502902673226621s" repeatCount="indefinite"/>
+      </rect><rect x="20" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0427433778240274s" repeatCount="indefinite"/>
+      </rect><rect x="38" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.652709743635067s" repeatCount="indefinite"/>
+      </rect><rect x="56" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.947657987241022s" repeatCount="indefinite"/>
+      </rect><rect x="74" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.036530418707902s" repeatCount="indefinite"/>
+      </rect><rect x="92" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.2607797053673306s" repeatCount="indefinite"/>
+      </rect><rect x="110" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.9138037722865797s" repeatCount="indefinite"/>
+      </rect><rect x="128" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.4395605156498887s" repeatCount="indefinite"/>
+      </rect><rect x="146" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.9024285666778313s" repeatCount="indefinite"/>
+      </rect><rect x="164" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.007277677938416s" repeatCount="indefinite"/>
+      </rect><rect x="182" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5188446501452866s" repeatCount="indefinite"/>
+      </rect><rect x="200" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0836173968423455s" repeatCount="indefinite"/>
+      </rect><rect x="218" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.3019604519831525s" repeatCount="indefinite"/>
+      </rect><rect x="236" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.9920068559562325s" repeatCount="indefinite"/>
+      </rect><rect x="254" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.9475800107132675s" repeatCount="indefinite"/>
+      </rect><rect x="272" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0203768063072283s" repeatCount="indefinite"/>
+      </rect><rect x="290" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.845310471846113s" repeatCount="indefinite"/>
+      </rect><rect x="308" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.898390557932861s" repeatCount="indefinite"/>
+      </rect><rect x="326" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.082027335369336s" repeatCount="indefinite"/>
+      </rect><rect x="344" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.713635478030441s" repeatCount="indefinite"/>
+      </rect><rect x="362" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.884771496434704s" repeatCount="indefinite"/>
+      </rect><rect x="380" y="84" width="16" height="12" fill="#33FF33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0884661984548574s" repeatCount="indefinite"/>
+      </rect><rect x="398" y="84" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.948206785411558s" repeatCount="indefinite"/>
+      </rect><rect x="416" y="84" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0723391727600906s" repeatCount="indefinite"/>
+      </rect><rect x="434" y="84" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.6354265523011655s" repeatCount="indefinite"/>
+      </rect><rect x="452" y="84" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.925774379081005s" repeatCount="indefinite"/>
+      </rect><rect x="470" y="84" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.883206090098955s" repeatCount="indefinite"/>
+      </rect><rect x="488" y="84" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.4392046325555605s" repeatCount="indefinite"/>
+      </rect><rect x="506" y="84" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.986551574883495s" repeatCount="indefinite"/>
+      </rect><rect x="524" y="84" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.123454877866445s" repeatCount="indefinite"/>
+      </rect><rect x="542" y="84" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.359117236445762s" repeatCount="indefinite"/>
+      </rect><rect x="560" y="84" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.557378982553757s" repeatCount="indefinite"/>
+      </rect><rect x="20" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.65581994631204s" repeatCount="indefinite"/>
+      </rect><rect x="38" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.4591219857586797s" repeatCount="indefinite"/>
+      </rect><rect x="56" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.193330815669595s" repeatCount="indefinite"/>
+      </rect><rect x="74" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.201018027984426s" repeatCount="indefinite"/>
+      </rect><rect x="92" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.039590243325372s" repeatCount="indefinite"/>
+      </rect><rect x="110" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.355316446921994s" repeatCount="indefinite"/>
+      </rect><rect x="128" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.9126497178655475s" repeatCount="indefinite"/>
+      </rect><rect x="146" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.2449898188398496s" repeatCount="indefinite"/>
+      </rect><rect x="164" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.7253901281647983s" repeatCount="indefinite"/>
+      </rect><rect x="182" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.2818630706404117s" repeatCount="indefinite"/>
+      </rect><rect x="200" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0661269284151897s" repeatCount="indefinite"/>
+      </rect><rect x="218" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.7751296305420183s" repeatCount="indefinite"/>
+      </rect><rect x="236" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.100698209957756s" repeatCount="indefinite"/>
+      </rect><rect x="254" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.488652662696994s" repeatCount="indefinite"/>
+      </rect><rect x="272" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.1944768825014904s" repeatCount="indefinite"/>
+      </rect><rect x="290" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.1653335571791192s" repeatCount="indefinite"/>
+      </rect><rect x="308" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.7052497486897877s" repeatCount="indefinite"/>
+      </rect><rect x="326" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.6149394529430823s" repeatCount="indefinite"/>
+      </rect><rect x="344" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5037900996974605s" repeatCount="indefinite"/>
+      </rect><rect x="362" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.076066381730638s" repeatCount="indefinite"/>
+      </rect><rect x="380" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.490689269319683s" repeatCount="indefinite"/>
+      </rect><rect x="398" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.1316657435676674s" repeatCount="indefinite"/>
+      </rect><rect x="416" y="98" width="16" height="12" fill="#FF6B35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0198164401727605s" repeatCount="indefinite"/>
+      </rect><rect x="434" y="98" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.1647536822332993s" repeatCount="indefinite"/>
+      </rect><rect x="452" y="98" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.9678451833230532s" repeatCount="indefinite"/>
+      </rect><rect x="470" y="98" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.605879816669371s" repeatCount="indefinite"/>
+      </rect><rect x="488" y="98" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.8225679091660396s" repeatCount="indefinite"/>
+      </rect><rect x="506" y="98" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.8938937994519334s" repeatCount="indefinite"/>
+      </rect><rect x="524" y="98" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.6585691714755058s" repeatCount="indefinite"/>
+      </rect><rect x="542" y="98" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.24019175080473s" repeatCount="indefinite"/>
+      </rect><rect x="560" y="98" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.7138124868923326s" repeatCount="indefinite"/>
+      </rect><rect x="20" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.327735167068403s" repeatCount="indefinite"/>
+      </rect><rect x="38" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.2549662162184347s" repeatCount="indefinite"/>
+      </rect><rect x="56" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.880050295923783s" repeatCount="indefinite"/>
+      </rect><rect x="74" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.316113345738042s" repeatCount="indefinite"/>
+      </rect><rect x="92" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.7337132740991508s" repeatCount="indefinite"/>
+      </rect><rect x="110" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.7532960380778495s" repeatCount="indefinite"/>
+      </rect><rect x="128" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.427852045066486s" repeatCount="indefinite"/>
+      </rect><rect x="146" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5169689846369936s" repeatCount="indefinite"/>
+      </rect><rect x="164" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.416269601932894s" repeatCount="indefinite"/>
+      </rect><rect x="182" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.456380677463323s" repeatCount="indefinite"/>
+      </rect><rect x="200" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.6966623869329873s" repeatCount="indefinite"/>
+      </rect><rect x="218" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.327577422055272s" repeatCount="indefinite"/>
+      </rect><rect x="236" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.818365357824396s" repeatCount="indefinite"/>
+      </rect><rect x="254" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5098654035731607s" repeatCount="indefinite"/>
+      </rect><rect x="272" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0912653526100744s" repeatCount="indefinite"/>
+      </rect><rect x="290" y="112" width="16" height="12" fill="#FFDD33" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.640835308393676s" repeatCount="indefinite"/>
+      </rect><rect x="308" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.4248289910923178s" repeatCount="indefinite"/>
+      </rect><rect x="326" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.2360715813175904s" repeatCount="indefinite"/>
+      </rect><rect x="344" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.1292695336621743s" repeatCount="indefinite"/>
+      </rect><rect x="362" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.7433464094994875s" repeatCount="indefinite"/>
+      </rect><rect x="380" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.141022173350317s" repeatCount="indefinite"/>
+      </rect><rect x="398" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5881931841184738s" repeatCount="indefinite"/>
+      </rect><rect x="416" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0795695366525795s" repeatCount="indefinite"/>
+      </rect><rect x="434" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.9852625722834656s" repeatCount="indefinite"/>
+      </rect><rect x="452" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.981966623583273s" repeatCount="indefinite"/>
+      </rect><rect x="470" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5557917994744654s" repeatCount="indefinite"/>
+      </rect><rect x="488" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.9621567145907797s" repeatCount="indefinite"/>
+      </rect><rect x="506" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.147739811723586s" repeatCount="indefinite"/>
+      </rect><rect x="524" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.8200905334319692s" repeatCount="indefinite"/>
+      </rect><rect x="542" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.859290979732057s" repeatCount="indefinite"/>
+      </rect><rect x="560" y="112" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0162057942600273s" repeatCount="indefinite"/>
+      </rect><rect x="20" y="126" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.300312110799954s" repeatCount="indefinite"/>
+      </rect><rect x="38" y="126" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.3313188683644444s" repeatCount="indefinite"/>
+      </rect><rect x="56" y="126" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.013867748779s" repeatCount="indefinite"/>
+      </rect><rect x="74" y="126" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.8899069673159143s" repeatCount="indefinite"/>
+      </rect><rect x="92" y="126" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.8641445992661367s" repeatCount="indefinite"/>
+      </rect><rect x="110" y="126" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.6928886129134106s" repeatCount="indefinite"/>
+      </rect><rect x="128" y="126" width="16" height="12" fill="#35A7FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.9893297632755798s" repeatCount="indefinite"/>
+      </rect><rect x="146" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.3182732003623334s" repeatCount="indefinite"/>
+      </rect><rect x="164" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.6923166648576933s" repeatCount="indefinite"/>
+      </rect><rect x="182" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.22952328366871s" repeatCount="indefinite"/>
+      </rect><rect x="200" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.810655625767644s" repeatCount="indefinite"/>
+      </rect><rect x="218" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.107487908915576s" repeatCount="indefinite"/>
+      </rect><rect x="236" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.253261635470782s" repeatCount="indefinite"/>
+      </rect><rect x="254" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.4463279438554304s" repeatCount="indefinite"/>
+      </rect><rect x="272" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.7712348662188457s" repeatCount="indefinite"/>
+      </rect><rect x="290" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.7996370175832292s" repeatCount="indefinite"/>
+      </rect><rect x="308" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.521025842396404s" repeatCount="indefinite"/>
+      </rect><rect x="326" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.3634530403061764s" repeatCount="indefinite"/>
+      </rect><rect x="344" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.7762674236795077s" repeatCount="indefinite"/>
+      </rect><rect x="362" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5261623994464184s" repeatCount="indefinite"/>
+      </rect><rect x="380" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.1088504026817856s" repeatCount="indefinite"/>
+      </rect><rect x="398" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.3673788026859324s" repeatCount="indefinite"/>
+      </rect><rect x="416" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.390209573419181s" repeatCount="indefinite"/>
+      </rect><rect x="434" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.100475208981034s" repeatCount="indefinite"/>
+      </rect><rect x="452" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.9302905297295183s" repeatCount="indefinite"/>
+      </rect><rect x="470" y="126" width="16" height="12" fill="#FF35A7" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.8341061035620982s" repeatCount="indefinite"/>
+      </rect><rect x="488" y="126" width="16" height="12" fill="#35FFDD" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.515598621390666s" repeatCount="indefinite"/>
+      </rect><rect x="506" y="126" width="16" height="12" fill="#35FFDD" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.588066786968054s" repeatCount="indefinite"/>
+      </rect><rect x="524" y="126" width="16" height="12" fill="#35FFDD" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.4425062407932687s" repeatCount="indefinite"/>
+      </rect><rect x="542" y="126" width="16" height="12" fill="#35FFDD" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.8188216939409108s" repeatCount="indefinite"/>
+      </rect><rect x="560" y="126" width="16" height="12" fill="#35FFDD" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.3163460419346444s" repeatCount="indefinite"/>
+      </rect><rect x="20" y="140" width="16" height="12" fill="#35FFDD" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0632237872585932s" repeatCount="indefinite"/>
+      </rect><rect x="38" y="140" width="16" height="12" fill="#35FFDD" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5063045925024823s" repeatCount="indefinite"/>
+      </rect><rect x="56" y="140" width="16" height="12" fill="#35FFDD" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.855411087770696s" repeatCount="indefinite"/>
+      </rect><rect x="74" y="140" width="16" height="12" fill="#35FFDD" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.1812557527009524s" repeatCount="indefinite"/>
+      </rect><rect x="92" y="140" width="16" height="12" fill="#35FFDD" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5857371545432315s" repeatCount="indefinite"/>
+      </rect><rect x="110" y="140" width="16" height="12" fill="#35FFDD" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0156256852575236s" repeatCount="indefinite"/>
+      </rect><rect x="128" y="140" width="16" height="12" fill="#DD35FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0706000942159637s" repeatCount="indefinite"/>
+      </rect><rect x="146" y="140" width="16" height="12" fill="#DD35FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.880891199952747s" repeatCount="indefinite"/>
+      </rect><rect x="164" y="140" width="16" height="12" fill="#DD35FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.337035733201079s" repeatCount="indefinite"/>
+      </rect><rect x="182" y="140" width="16" height="12" fill="#DD35FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5883348143409752s" repeatCount="indefinite"/>
+      </rect><rect x="200" y="140" width="16" height="12" fill="#DD35FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.227681276657369s" repeatCount="indefinite"/>
+      </rect><rect x="218" y="140" width="16" height="12" fill="#DD35FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.914039286396256s" repeatCount="indefinite"/>
+      </rect><rect x="236" y="140" width="16" height="12" fill="#DD35FF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0906314572873517s" repeatCount="indefinite"/>
+      </rect><rect x="254" y="140" width="16" height="12" fill="#A7FF35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.1039169897991856s" repeatCount="indefinite"/>
+      </rect><rect x="272" y="140" width="16" height="12" fill="#A7FF35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.7271148821126303s" repeatCount="indefinite"/>
+      </rect><rect x="290" y="140" width="16" height="12" fill="#A7FF35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.0707310077946466s" repeatCount="indefinite"/>
+      </rect><rect x="308" y="140" width="16" height="12" fill="#A7FF35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.4818310529923173s" repeatCount="indefinite"/>
+      </rect><rect x="326" y="140" width="16" height="12" fill="#A7FF35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.6428284411421847s" repeatCount="indefinite"/>
+      </rect><rect x="344" y="140" width="16" height="12" fill="#A7FF35" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.419022286565938s" repeatCount="indefinite"/>
+      </rect><rect x="362" y="140" width="16" height="12" fill="#FF3535" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.1021055979483423s" repeatCount="indefinite"/>
+      </rect><rect x="380" y="140" width="16" height="12" fill="#FF3535" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.8040973827009386s" repeatCount="indefinite"/>
+      </rect><rect x="398" y="140" width="16" height="12" fill="#FF3535" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.1718736868447683s" repeatCount="indefinite"/>
+      </rect><rect x="416" y="140" width="16" height="12" fill="#FF3535" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.364980904053787s" repeatCount="indefinite"/>
+      </rect><rect x="434" y="140" width="16" height="12" fill="#FF3535" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.6212695732741906s" repeatCount="indefinite"/>
+      </rect><rect x="452" y="140" width="16" height="12" fill="#FF3535" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.2096790037048946s" repeatCount="indefinite"/>
+      </rect><rect x="470" y="140" width="16" height="12" fill="#35DDFF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.21519918632315s" repeatCount="indefinite"/>
+      </rect><rect x="488" y="140" width="16" height="12" fill="#35DDFF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.978395220246657s" repeatCount="indefinite"/>
+      </rect><rect x="506" y="140" width="16" height="12" fill="#35DDFF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.2264471000950836s" repeatCount="indefinite"/>
+      </rect><rect x="524" y="140" width="16" height="12" fill="#35DDFF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.8830204166255666s" repeatCount="indefinite"/>
+      </rect><rect x="542" y="140" width="16" height="12" fill="#35DDFF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.970750825229531s" repeatCount="indefinite"/>
+      </rect><rect x="560" y="140" width="16" height="12" fill="#35DDFF" filter="url(#phosphorGlow)">
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.933780784490953s" repeatCount="indefinite"/>
+      </rect>
+
+  <!-- Legend divider -->
+  <text x="20" y="179" font-size="11" fill="#118811" filter="url(#phosphorGlow)">├─ DISTRIBUTION ─────────────────────────────────────────────────┤</text>
+
+  <!-- Language listing -->
+  
+    <text x="20" y="199" font-size="12" fill="#33FF33" filter="url(#phosphorGlow)">██</text>
+    <text x="50" y="199" font-size="12" fill="#22DD22" filter="url(#phosphorGlow)">Python</text>
+    <text x="580" y="199" font-size="12" fill="#33FF33" filter="url(#phosphorGlow)" text-anchor="end">28.0%</text>
+    <text x="20" y="219" font-size="12" fill="#FF6B35" filter="url(#phosphorGlow)">██</text>
+    <text x="50" y="219" font-size="12" fill="#22DD22" filter="url(#phosphorGlow)">Go</text>
+    <text x="580" y="219" font-size="12" fill="#FF6B35" filter="url(#phosphorGlow)" text-anchor="end">18.0%</text>
+    <text x="20" y="239" font-size="12" fill="#FFDD33" filter="url(#phosphorGlow)">██</text>
+    <text x="50" y="239" font-size="12" fill="#22DD22" filter="url(#phosphorGlow)">Rust</text>
+    <text x="580" y="239" font-size="12" fill="#FFDD33" filter="url(#phosphorGlow)" text-anchor="end">13.0%</text>
+    <text x="20" y="259" font-size="12" fill="#35A7FF" filter="url(#phosphorGlow)">██</text>
+    <text x="50" y="259" font-size="12" fill="#22DD22" filter="url(#phosphorGlow)">TypeScript</text>
+    <text x="580" y="259" font-size="12" fill="#35A7FF" filter="url(#phosphorGlow)" text-anchor="end">12.0%</text>
+    <text x="20" y="279" font-size="12" fill="#FF35A7" filter="url(#phosphorGlow)">██</text>
+    <text x="50" y="279" font-size="12" fill="#22DD22" filter="url(#phosphorGlow)">Java</text>
+    <text x="580" y="279" font-size="12" fill="#FF35A7" filter="url(#phosphorGlow)" text-anchor="end">10.0%</text>
+    <text x="20" y="299" font-size="12" fill="#35FFDD" filter="url(#phosphorGlow)">██</text>
+    <text x="50" y="299" font-size="12" fill="#22DD22" filter="url(#phosphorGlow)">C#</text>
+    <text x="580" y="299" font-size="12" fill="#35FFDD" filter="url(#phosphorGlow)" text-anchor="end">6.0%</text>
+    <text x="20" y="319" font-size="12" fill="#DD35FF" filter="url(#phosphorGlow)">██</text>
+    <text x="50" y="319" font-size="12" fill="#22DD22" filter="url(#phosphorGlow)">Shell</text>
+    <text x="580" y="319" font-size="12" fill="#DD35FF" filter="url(#phosphorGlow)" text-anchor="end">4.0%</text>
+    <text x="20" y="339" font-size="12" fill="#A7FF35" filter="url(#phosphorGlow)">██</text>
+    <text x="50" y="339" font-size="12" fill="#22DD22" filter="url(#phosphorGlow)">Makefile</text>
+    <text x="580" y="339" font-size="12" fill="#A7FF35" filter="url(#phosphorGlow)" text-anchor="end">3.0%</text>
+    <text x="20" y="359" font-size="12" fill="#FF3535" filter="url(#phosphorGlow)">██</text>
+    <text x="50" y="359" font-size="12" fill="#22DD22" filter="url(#phosphorGlow)">Lua</text>
+    <text x="580" y="359" font-size="12" fill="#FF3535" filter="url(#phosphorGlow)" text-anchor="end">3.0%</text>
+    <text x="20" y="379" font-size="12" fill="#35DDFF" filter="url(#phosphorGlow)">██</text>
+    <text x="50" y="379" font-size="12" fill="#22DD22" filter="url(#phosphorGlow)">Markdown</text>
+    <text x="580" y="379" font-size="12" fill="#35DDFF" filter="url(#phosphorGlow)" text-anchor="end">3.0%</text>
+
+  <!-- Footer -->
+  <text x="20" y="419" font-size="10" fill="#118811" filter="url(#phosphorGlow)">└─ 2026-02-01T13:41:00.000Z ─────────────────────────────────────────┘</text>
+
+  <!-- Scanlines overlay -->
+  <rect width="100%" height="100%" fill="url(#scanlines)" rx="4" pointer-events="none"/>
+</svg>

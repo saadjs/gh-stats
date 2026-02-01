@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="574" viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub language stats">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&amp;display=swap');
+    text { font-family: 'Space Grotesk', sans-serif; }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0D0D12"/>
+      <stop offset="100%" stop-color="#12101A"/>
+    </linearGradient>
+    
+    <filter id="heatBloom" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="thermalGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="infraredBorder" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C4DFF"/>
+      <stop offset="100%" stop-color="#FF4081"/>
+    </linearGradient>
+    <radialGradient id="scopeGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1A1525"/>
+      <stop offset="70%" stop-color="#0D0D12"/>
+      <stop offset="100%" stop-color="#08080C"/>
+    </radialGradient>
+    <linearGradient id="heatScale" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#000033"/>
+      <stop offset="20%" stop-color="#0066FF"/>
+      <stop offset="40%" stop-color="#00FFFF"/>
+      <stop offset="60%" stop-color="#00FF00"/>
+      <stop offset="80%" stop-color="#FFFF00"/>
+      <stop offset="100%" stop-color="#FF0000"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg)" rx="8"/>
+  <rect x="2" y="2" width="596" height="416" fill="none" stroke="url(#infraredBorder)" stroke-width="2" rx="6"/>
+
+  <!-- Header -->
+  <text x="20" y="30" font-size="14" fill="#FFFFFF" font-weight="600" letter-spacing="2">THERMAL ANALYSIS</text>
+  <text x="20" y="48" font-size="10" fill="#8888AA" letter-spacing="1">48 repositories scanned</text>
+
+  <!-- Crosshair and rings -->
+  
+    <line x1="30" y1="210" x2="330" y2="210" stroke="#3A3050" stroke-width="1"/>
+    <line x1="180" y1="60" x2="180" y2="360" stroke="#3A3050" stroke-width="1"/>
+    <circle cx="180" cy="210" r="5" fill="none" stroke="#FF4081" stroke-width="2">
+      <animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  <circle cx="180" cy="210" r="60" fill="none" stroke="#2A2040" stroke-width="1" stroke-dasharray="4 4"/><circle cx="180" cy="210" r="95" fill="none" stroke="#2A2040" stroke-width="1" stroke-dasharray="4 4"/><circle cx="180" cy="210" r="130" fill="none" stroke="#2A2040" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- Pie segments -->
+  
+    <path d="M 180 80 A 130 130 0 0 1 307.69734259472955 234.35957089614422 L 219.29149002914755 217.495252583429 A 40 40 0 0 0 180 170 Z" fill="#FF1744" filter="url(#heatBloom)" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 307.69734259472955 234.35957089614422 A 130 130 0 0 1 212.3296853314311 335.91581094672205 L 189.9475954865942 248.74332644514524 A 40 40 0 0 0 219.29149002914755 217.495252583429 Z" fill="#FF6D00" filter="url(#heatBloom)" opacity="0.9">
+      
+    </path>
+    <path d="M 212.3296853314311 335.91581094672205 A 130 130 0 0 1 110.34251665273047 319.76263031526196 L 158.56692820084015 243.7731170200806 A 40 40 0 0 0 189.9475954865942 248.74332644514524 Z" fill="#FFEA00" filter="url(#heatBloom)" opacity="0.9">
+      
+    </path>
+    <path d="M 110.34251665273047 319.76263031526196 A 130 130 0 0 1 54.08418905327795 242.32968533143114 L 141.25667355485476 219.9475954865942 A 40 40 0 0 0 158.56692820084015 243.7731170200806 Z" fill="#FF4081" filter="url(#heatBloom)" opacity="0.9">
+      
+    </path>
+    <path d="M 54.08418905327795 242.32968533143114 A 130 130 0 0 1 59.12905683452729 162.14380815099193 L 142.80894056446994 195.2750178926129 A 40 40 0 0 0 141.25667355485476 219.9475954865942 Z" fill="#E040FB" filter="url(#heatBloom)" opacity="0.9">
+      
+    </path>
+    <path d="M 59.12905683452729 162.14380815099193 A 130 130 0 0 1 85.23407843521647 121.00887622927051 L 150.84125490314352 182.61811576285245 A 40 40 0 0 0 142.80894056446994 195.2750178926129 Z" fill="#7C4DFF" filter="url(#heatBloom)" opacity="0.9">
+      
+    </path>
+    <path d="M 85.23407843521647 121.00887622927051 A 130 130 0 0 1 110.34251665273038 100.23736968473807 L 158.56692820084012 176.22688297991942 A 40 40 0 0 0 150.84125490314352 182.61811576285245 Z" fill="#448AFF" filter="url(#heatBloom)" opacity="0.9">
+      
+    </path>
+    <path d="M 110.34251665273038 100.23736968473807 A 130 130 0 0 1 132.1438081509919 89.1290568345273 L 165.27501789261288 172.80894056446994 A 40 40 0 0 0 158.56692820084012 176.22688297991942 Z" fill="#00E5FF" filter="url(#heatBloom)" opacity="0.9">
+      
+    </path>
+    <path d="M 132.1438081509919 89.1290568345273 A 130 130 0 0 1 155.6404291038557 82.3026574052705 L 172.50474741657098 170.70850997085245 A 40 40 0 0 0 165.27501789261288 172.80894056446994 Z" fill="#FFFFFF" filter="url(#heatBloom)" opacity="0.9">
+      
+    </path>
+    <path d="M 155.6404291038557 82.3026574052705 A 130 130 0 0 1 179.99999999999997 80 L 180 170 A 40 40 0 0 0 172.50474741657098 170.70850997085245 Z" fill="#FF3D00" filter="url(#heatBloom)" opacity="0.9">
+      
+    </path>
+
+  <!-- Center readout -->
+  <circle cx="180" cy="210" r="35" fill="#0D0D12"/>
+  <text x="180" y="205" font-size="20" fill="#FFFFFF" text-anchor="middle" font-weight="600" filter="url(#thermalGlow)">28%</text>
+  <text x="180" y="224" font-size="10" fill="#8888AA" text-anchor="middle">Python</text>
+
+  <!-- Data panel on right -->
+  <text x="340" y="80" font-size="10" fill="#8888AA" letter-spacing="1">DISTRIBUTION</text>
+  
+    <rect x="340" y="86" width="4" height="18" fill="#FF1744" filter="url(#heatBloom)"/>
+    <text x="354" y="100" font-size="11" fill="#E8E8F0">Python</text>
+    <text x="575" y="100" font-size="11" fill="#FF1744" text-anchor="end" filter="url(#heatBloom)">28.0%</text>
+    <rect x="340" y="108" width="4" height="18" fill="#FF6D00" filter="url(#heatBloom)"/>
+    <text x="354" y="122" font-size="11" fill="#E8E8F0">Go</text>
+    <text x="575" y="122" font-size="11" fill="#FF6D00" text-anchor="end" filter="url(#heatBloom)">18.0%</text>
+    <rect x="340" y="130" width="4" height="18" fill="#FFEA00" filter="url(#heatBloom)"/>
+    <text x="354" y="144" font-size="11" fill="#E8E8F0">Rust</text>
+    <text x="575" y="144" font-size="11" fill="#FFEA00" text-anchor="end" filter="url(#heatBloom)">13.0%</text>
+    <rect x="340" y="152" width="4" height="18" fill="#FF4081" filter="url(#heatBloom)"/>
+    <text x="354" y="166" font-size="11" fill="#E8E8F0">TypeScript</text>
+    <text x="575" y="166" font-size="11" fill="#FF4081" text-anchor="end" filter="url(#heatBloom)">12.0%</text>
+    <rect x="340" y="174" width="4" height="18" fill="#E040FB" filter="url(#heatBloom)"/>
+    <text x="354" y="188" font-size="11" fill="#E8E8F0">Java</text>
+    <text x="575" y="188" font-size="11" fill="#E040FB" text-anchor="end" filter="url(#heatBloom)">10.0%</text>
+    <rect x="340" y="196" width="4" height="18" fill="#7C4DFF" filter="url(#heatBloom)"/>
+    <text x="354" y="210" font-size="11" fill="#E8E8F0">C#</text>
+    <text x="575" y="210" font-size="11" fill="#7C4DFF" text-anchor="end" filter="url(#heatBloom)">6.0%</text>
+    <rect x="340" y="218" width="4" height="18" fill="#448AFF" filter="url(#heatBloom)"/>
+    <text x="354" y="232" font-size="11" fill="#E8E8F0">Shell</text>
+    <text x="575" y="232" font-size="11" fill="#448AFF" text-anchor="end" filter="url(#heatBloom)">4.0%</text>
+    <rect x="340" y="240" width="4" height="18" fill="#00E5FF" filter="url(#heatBloom)"/>
+    <text x="354" y="254" font-size="11" fill="#E8E8F0">Makefile</text>
+    <text x="575" y="254" font-size="11" fill="#00E5FF" text-anchor="end" filter="url(#heatBloom)">3.0%</text>
+    <rect x="340" y="262" width="4" height="18" fill="#FFFFFF" filter="url(#heatBloom)"/>
+    <text x="354" y="276" font-size="11" fill="#E8E8F0">Lua</text>
+    <text x="575" y="276" font-size="11" fill="#FFFFFF" text-anchor="end" filter="url(#heatBloom)">3.0%</text>
+    <rect x="340" y="284" width="4" height="18" fill="#FF3D00" filter="url(#heatBloom)"/>
+    <text x="354" y="298" font-size="11" fill="#E8E8F0">Markdown</text>
+    <text x="575" y="298" font-size="11" fill="#FF3D00" text-anchor="end" filter="url(#heatBloom)">3.0%</text>
+
+  <!-- Heat scale -->
+  <rect x="30" y="375" width="540" height="10" rx="2" fill="url(#heatScale)"/>
+  <text x="30" y="397" font-size="8" fill="#8888AA">0%</text>
+  <text x="570" y="397" font-size="8" fill="#8888AA" text-anchor="end">100%</text>
+
+  <!-- Timestamp -->
+  <text x="20" y="408" font-size="9" fill="#8888AA">2026-02-01T13:41:00.000Z</text>
+</svg>
