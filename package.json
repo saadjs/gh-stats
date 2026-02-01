@@ -12,6 +12,10 @@
   "bin": {
     "gh-stats": "dist/cli.js"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "vite build",
     "lint": "eslint . --max-warnings=0",
@@ -19,9 +23,14 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "prepare": "husky",
+    "postbuild": "node scripts/chmod-cli.js",
+    "prepack": "pnpm run build",
     "start": "node dist/cli.js",
     "test": "vitest run",
     "test:ui": "vitest --ui"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [],
   "license": "ISC",
