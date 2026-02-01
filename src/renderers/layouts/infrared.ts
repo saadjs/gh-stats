@@ -44,11 +44,21 @@ export function renderInfraredLayout(
 ): string {
   const { palette, background, backgroundSecondary, headerColor, labelColor, footerColor, fontFamily, fontImport, borderRadius } = theme;
   const rows = stats.languages;
-  const height = 420;
+  const rowGap = 22;
+  const panelTop = 70;
+  const panelHeaderOffset = 30;
+  const panelBottomPadding = 80;
+  const minHeight = 420;
+  const panelContentHeight =
+    panelTop +
+    panelHeaderOffset +
+    Math.max(0, rows.length - 1) * rowGap +
+    panelBottomPadding;
+  const height = Math.max(minHeight, panelContentHeight);
 
   // Position pie chart on the left side
   const centerX = 180;
-  const centerY = 210;
+  const centerY = Math.round(height / 2);
   const maxRadius = 130;
   const minRadius = 40;
 
@@ -107,9 +117,9 @@ export function renderInfraredLayout(
 
   // Data readout panel (right side) - positioned clearly to the right
   const panelX = 340;
-  const panelY = 70;
+  const panelY = panelTop;
   const readoutSvg = rows.map((row, i) => {
-    const y = panelY + 30 + i * 26;
+    const y = panelY + panelHeaderOffset + i * rowGap;
     const color = palette[i % palette.length];
     return `
     <rect x="${panelX}" y="${y - 14}" width="4" height="18" fill="${color}" filter="url(#heatBloom)"/>
