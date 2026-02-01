@@ -17,6 +17,16 @@ pnpm run build
 
 ## Usage
 
+## Run with npx (no install)
+
+```bash
+GITHUB_TOKEN=your_token npx @saadjs/gh-stats --svg --out stats.svg
+```
+
+```bash
+npx @saadjs/gh-stats --svg --theme phosphor --in data.json --out stats.svg
+```
+
 ## Install CLI command
 
 Build first, then link globally or install from the local path.
