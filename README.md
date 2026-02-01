@@ -1,10 +1,11 @@
 # gh-stats
 
-Generate GitHub language stats as JSON or a simple SVG bar chart.
+Generate GitHub language stats as JSON or SVG charts with multiple themes.
 
 ## Requirements
 
 - Node.js 18+ (for built-in `fetch`)
+- pnpm 10 (see `packageManager` in `package.json`)
 - A GitHub token with access to private repositories if needed
 
 ## Setup
@@ -37,6 +38,48 @@ pnpm add -g .
 ```bash
 GITHUB_TOKEN=your_token gh-stats
 ```
+
+<details>
+<summary>JSON schema (for custom inputs)</summary>
+
+```json
+{
+  "type": "object",
+  "required": [
+    "totalBytes",
+    "languages",
+    "generatedAt",
+    "repositoryCount",
+    "includedForks",
+    "includedArchived",
+    "includedMarkdown"
+  ],
+  "properties": {
+    "totalBytes": { "type": "number" },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["language", "bytes", "percent"],
+        "properties": {
+          "language": { "type": "string" },
+          "bytes": { "type": "number" },
+          "percent": { "type": "number" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "repositoryCount": { "type": "number" },
+    "includedForks": { "type": "boolean" },
+    "includedArchived": { "type": "boolean" },
+    "includedMarkdown": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}
+```
+
+</details>
 
 ### SVG
 
@@ -87,7 +130,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v3
         with:
-          version: 9
+          version: 10
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -117,9 +160,11 @@ Notes:
 
 ### Options
 
+- `--token <token>` GitHub access token (or use `GITHUB_TOKEN`)
 - `--format <json|svg>` choose output format
 - `--json` output JSON
 - `--svg` output SVG
+- `--theme <name>` choose SVG theme: default, phosphor, infrared, outline, pie
 - `--in <path>` read precomputed stats JSON (skips GitHub API)
 - `--include-forks` include forked repositories (default: excluded)
 - `--exclude-archived` exclude archived repositories (default: included)
@@ -127,6 +172,7 @@ Notes:
 - `--top <n>` limit to top N languages (default: 10)
 - `--all` include all languages (overrides `--top`)
 - `--out <path>` write output to a file
+- `--help` / `-h` show help
 
 ## Token scopes
 
