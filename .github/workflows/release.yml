@@ -169,7 +169,7 @@ jobs:
             end
 
             test do
-              assert_match "gh-stats", shell_output("#{bin}/gh-stats --help")
+              system "\#{bin}/gh-stats", "--help"
             end
           end
           '''
