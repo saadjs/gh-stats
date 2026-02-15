@@ -7,6 +7,7 @@ export interface RepoSummary {
   archived: boolean;
   private: boolean;
   languages_url: string;
+  pushed_at: string | null;
 }
 
 export interface LanguageStat {
@@ -23,6 +24,12 @@ export interface LanguageStatsResult {
   includedForks: boolean;
   includedArchived: boolean;
   includedMarkdown: boolean;
+  window?: {
+    days: number;
+    since: string;
+    until: string;
+    activityField: "pushed_at";
+  };
 }
 
 export interface FetchOptions {

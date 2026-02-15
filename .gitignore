@@ -143,3 +143,6 @@ vite.config.ts.timestamp-*
 # Test coverage
 coverage/
 .nyc_output/
+
+# gh-stats generated outputs
+stats.svg

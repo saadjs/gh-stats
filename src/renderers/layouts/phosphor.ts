@@ -27,7 +27,18 @@ export function renderPhosphorLayout(
   theme: Theme,
   width: number
 ): string {
-  const { palette, background, backgroundSecondary, headerColor, labelColor, footerColor, borderColor, fontFamily, fontImport, borderRadius } = theme;
+  const {
+    palette,
+    background,
+    backgroundSecondary,
+    headerColor,
+    labelColor,
+    footerColor,
+    borderColor,
+    fontFamily,
+    fontImport,
+    borderRadius,
+  } = theme;
   const rows = stats.languages;
   const paddingX = 20;
 
@@ -71,19 +82,22 @@ export function renderPhosphorLayout(
   const listStartY = blockEndY + 20;
   const listX = paddingX;
 
-  const listingSvg = rows.map((row, i) => {
-    const y = listStartY + i * 20;
-    const color = palette[i % palette.length];
-    const blockChar = "█";
-    return `
+  const listingSvg = rows
+    .map((row, i) => {
+      const y = listStartY + i * 20;
+      const color = palette[i % palette.length];
+      const blockChar = "█";
+      return `
     <text x="${listX}" y="${y}" font-size="12" fill="${color}" filter="url(#phosphorGlow)">${blockChar}${blockChar}</text>
     <text x="${listX + 30}" y="${y}" font-size="12" fill="${labelColor}" filter="url(#phosphorGlow)">${row.language}</text>
     <text x="${width - paddingX}" y="${y}" font-size="12" fill="${color}" filter="url(#phosphorGlow)" text-anchor="end">${row.percent.toFixed(1)}%</text>`;
-  }).join("");
+    })
+    .join("");
 
   // Footer stats
   const footerY = listStartY + rows.length * 20 + 20;
   const finalHeight = footerY + 25;
+  const windowLine = stats.window ? `│ Past ${stats.window.days} days (pushed_at)` : "";
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${width}" height="${finalHeight}" viewBox="0 0 ${width} ${finalHeight}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub language stats">
@@ -107,6 +121,11 @@ export function renderPhosphorLayout(
   <!-- Header -->
   <text x="${paddingX}" y="28" font-size="14" fill="${headerColor}" font-weight="600" filter="url(#phosphorGlow)">┌─ LANG_STATS.EXE ───────────────────────────────────────────────┐</text>
   <text x="${paddingX}" y="50" font-size="11" fill="${labelColor}" filter="url(#phosphorGlow)">│ ${stats.repositoryCount} repositories scanned</text>
+  ${
+    windowLine
+      ? `<text x="${paddingX}" y="64" font-size="11" fill="${labelColor}" filter="url(#phosphorGlow)">${windowLine}</text>`
+      : ""
+  }
 
   <!-- Blinking cursor -->
   <rect x="${width - paddingX - 20}" y="38" width="8" height="12" fill="${headerColor}">

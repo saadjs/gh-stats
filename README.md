@@ -199,6 +199,7 @@ Notes:
 - `--include-forks` include forked repositories (default: excluded)
 - `--exclude-archived` exclude archived repositories (default: included)
 - `--include-markdown` include Markdown/MDX in language stats (default: excluded)
+- `--past-week` only include repos pushed in the last 7 days (counts full repo language bytes)
 - `--top <n>` limit to top N languages (default: 10)
 - `--all` include all languages (overrides `--top`)
 - `--out <path>` write output to a file

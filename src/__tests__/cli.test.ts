@@ -88,6 +88,12 @@ describe("CLI Integration Tests", () => {
     expect(cliContent).toContain('case "--include-markdown"');
   });
 
+  it("should support --past-week option", () => {
+    const cliContent = fs.readFileSync("src/cli.ts", "utf8");
+    expect(cliContent).toContain('case "--past-week"');
+    expect(cliContent).toContain("--past-week");
+  });
+
   it("should support --top option for limiting results", () => {
     const cliContent = fs.readFileSync("src/cli.ts", "utf8");
     expect(cliContent).toContain('case "--top"');

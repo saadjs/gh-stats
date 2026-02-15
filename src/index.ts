@@ -10,6 +10,7 @@ import { fetchRepoLanguages, listAllRepos } from "./github.js";
 interface AggregateOptions extends FetchOptions {
   top?: number;
   all?: boolean;
+  pastWeek?: boolean;
 }
 
 const MARKDOWN_LANGUAGES = new Set(["Markdown", "MDX"]);
@@ -77,7 +78,30 @@ async function fetchAllLanguages(repos: RepoSummary[], token: string): Promise<L
 }
 
 export async function getLanguageStats(options: AggregateOptions): Promise<LanguageStatsResult> {
-  const repos = await listAllRepos(options);
+  let repos = await listAllRepos(options);
+  let windowMeta: LanguageStatsResult["window"];
+
+  if (options.pastWeek) {
+    const days = 7;
+    const nowMs = Date.now();
+    const cutoffMs = nowMs - days * 24 * 60 * 60 * 1000;
+
+    repos = repos.filter((repo) => {
+      const pushedAt = repo.pushed_at;
+      if (!pushedAt) return false;
+      const pushedMs = Date.parse(pushedAt);
+      if (Number.isNaN(pushedMs)) return false;
+      return pushedMs >= cutoffMs;
+    });
+
+    windowMeta = {
+      days,
+      since: new Date(cutoffMs).toISOString(),
+      until: new Date(nowMs).toISOString(),
+      activityField: "pushed_at",
+    };
+  }
+
   const totals = await fetchAllLanguages(repos, options.token);
   if (!options.includeMarkdown) {
     for (const language of MARKDOWN_LANGUAGES) {
@@ -96,5 +120,6 @@ export async function getLanguageStats(options: AggregateOptions): Promise<Langu
     includedForks: options.includeForks,
     includedArchived: options.includeArchived,
     includedMarkdown: options.includeMarkdown,
+    window: windowMeta,
   };
 }

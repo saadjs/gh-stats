@@ -54,7 +54,10 @@ export function renderSvg(stats: LanguageStatsResult, options: SvgOptions = {}):
   const maxPercent = Math.max(...rows.map((row) => row.percent), 0);
 
   const header = "GitHub Language Stats";
-  const subheader = `Generated ${stats.generatedAt.slice(0, 10)}`;
+  const generatedDate = stats.generatedAt.slice(0, 10);
+  const subheader = stats.window
+    ? `Past ${stats.window.days} days • Generated ${generatedDate}`
+    : `Generated ${generatedDate}`;
   const repoSummary = `${stats.repositoryCount} repos`;
   const footerParts = [
     stats.includedForks ? "Forks included" : "Forks excluded",
