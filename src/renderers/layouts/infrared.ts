@@ -42,7 +42,17 @@ export function renderInfraredLayout(
   theme: Theme,
   width: number
 ): string {
-  const { palette, background, backgroundSecondary, headerColor, labelColor, footerColor, fontFamily, fontImport, borderRadius } = theme;
+  const {
+    palette,
+    background,
+    backgroundSecondary,
+    headerColor,
+    labelColor,
+    footerColor,
+    fontFamily,
+    fontImport,
+    borderRadius,
+  } = theme;
   const rows = stats.languages;
   const rowGap = 22;
   const panelTop = 70;
@@ -50,10 +60,7 @@ export function renderInfraredLayout(
   const panelBottomPadding = 80;
   const minHeight = 420;
   const panelContentHeight =
-    panelTop +
-    panelHeaderOffset +
-    Math.max(0, rows.length - 1) * rowGap +
-    panelBottomPadding;
+    panelTop + panelHeaderOffset + Math.max(0, rows.length - 1) * rowGap + panelBottomPadding;
   const height = Math.max(minHeight, panelContentHeight);
 
   // Position pie chart on the left side
@@ -96,15 +103,22 @@ export function renderInfraredLayout(
     };
   });
 
-  const segmentsSvg = segments.map((seg, i) => `
+  const segmentsSvg = segments
+    .map(
+      (seg, i) => `
     <path d="${seg.path}" fill="${seg.color}" filter="url(#heatBloom)" opacity="0.9">
       ${i === 0 ? '<animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>' : ""}
-    </path>`).join("");
+    </path>`
+    )
+    .join("");
 
   // Concentric guide rings
-  const rings = [60, 95, 130].map(r =>
-    `<circle cx="${centerX}" cy="${centerY}" r="${r}" fill="none" stroke="#2A2040" stroke-width="1" stroke-dasharray="4 4"/>`
-  ).join("");
+  const rings = [60, 95, 130]
+    .map(
+      (r) =>
+        `<circle cx="${centerX}" cy="${centerY}" r="${r}" fill="none" stroke="#2A2040" stroke-width="1" stroke-dasharray="4 4"/>`
+    )
+    .join("");
 
   // Crosshair
   const crosshair = `
@@ -118,14 +132,16 @@ export function renderInfraredLayout(
   // Data readout panel (right side) - positioned clearly to the right
   const panelX = 340;
   const panelY = panelTop;
-  const readoutSvg = rows.map((row, i) => {
-    const y = panelY + panelHeaderOffset + i * rowGap;
-    const color = palette[i % palette.length];
-    return `
+  const readoutSvg = rows
+    .map((row, i) => {
+      const y = panelY + panelHeaderOffset + i * rowGap;
+      const color = palette[i % palette.length];
+      return `
     <rect x="${panelX}" y="${y - 14}" width="4" height="18" fill="${color}" filter="url(#heatBloom)"/>
     <text x="${panelX + 14}" y="${y}" font-size="11" fill="${labelColor}">${row.language}</text>
     <text x="${width - 25}" y="${y}" font-size="11" fill="${color}" text-anchor="end" filter="url(#heatBloom)">${row.percent.toFixed(1)}%</text>`;
-  }).join("");
+    })
+    .join("");
 
   // Heat scale bar
   const scaleY = height - 45;
@@ -152,6 +168,11 @@ export function renderInfraredLayout(
   <!-- Header -->
   <text x="20" y="30" font-size="14" fill="${headerColor}" font-weight="600" letter-spacing="2">THERMAL ANALYSIS</text>
   <text x="20" y="48" font-size="10" fill="${footerColor}" letter-spacing="1">${stats.repositoryCount} repositories scanned</text>
+  ${
+    stats.window
+      ? `<text x="20" y="62" font-size="10" fill="${footerColor}" letter-spacing="1">PAST ${stats.window.days} DAYS • PUSHED_AT</text>`
+      : ""
+  }
 
   <!-- Crosshair and rings -->
   ${crosshair}

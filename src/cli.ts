@@ -12,6 +12,7 @@ interface CliOptions {
   includeForks: boolean;
   includeArchived: boolean;
   includeMarkdown: boolean;
+  pastWeek?: boolean;
   top?: number;
   all?: boolean;
   out?: string;
@@ -32,6 +33,7 @@ Options:
   --include-forks         Include forked repositories
   --exclude-archived      Exclude archived repositories
   --include-markdown      Include Markdown/MDX in language stats
+  --past-week             Only include repos pushed in the last 7 days
   --top <number>          Limit to top N languages (default: 10)
   --all                   Include all languages (overrides --top)
   --out <path>            Write output to a file
@@ -51,6 +53,7 @@ Examples:
   gh-stats --svg --theme infrared --out stats.svg
   gh-stats --svg --theme pie --out stats.svg
   gh-stats --format json --top 8
+  gh-stats --past-week --svg --out stats.svg
   gh-stats --json --out data.json
   gh-stats --svg --theme phosphor --in data.json --out stats.svg
 `;
@@ -102,6 +105,9 @@ function parseArgs(argv: string[]): CliOptions {
         break;
       case "--include-markdown":
         options.includeMarkdown = true;
+        break;
+      case "--past-week":
+        options.pastWeek = true;
         break;
       case "--top":
         options.top = Number(argv[i + 1]);
@@ -185,6 +191,7 @@ async function run(): Promise<void> {
       includeForks: options.includeForks,
       includeArchived: options.includeArchived,
       includeMarkdown: options.includeMarkdown,
+      pastWeek: options.pastWeek,
       top: options.top,
       all: options.all,
     });

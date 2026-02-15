@@ -24,11 +24,7 @@ function buildPieRows(stats: LanguageStatsResult): LanguageStat[] {
   ];
 }
 
-export function renderPieLayout(
-  stats: LanguageStatsResult,
-  theme: Theme,
-  width: number
-): string {
+export function renderPieLayout(stats: LanguageStatsResult, theme: Theme, width: number): string {
   const {
     palette,
     background,
@@ -119,6 +115,7 @@ export function renderPieLayout(
   const statSummary = `${rows.length} slices`;
   const generatedDate = new Date(stats.generatedAt).toISOString().split("T")[0];
   const footer = `Generated ${generatedDate}`;
+  const windowLabel = stats.window ? `Past ${stats.window.days} days` : "";
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub language stats">
@@ -137,6 +134,7 @@ export function renderPieLayout(
 
   <text x="24" y="34" font-size="16" fill="${labelColor}" font-weight="600">${header}</text>
   <text x="${width - 24}" y="34" font-size="11" fill="${headerColor}" text-anchor="end">${repoSummary} • ${statSummary}</text>
+  ${windowLabel ? `<text x="24" y="54" font-size="11" fill="${footerColor}">${windowLabel}</text>` : ""}
 
   ${segmentsSvg}
   <circle cx="${centerX}" cy="${centerY}" r="${innerRadius - 6}" fill="${background}" />

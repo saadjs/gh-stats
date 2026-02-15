@@ -6,7 +6,8 @@ export function renderOutlineLayout(
   theme: Theme,
   width: number
 ): string {
-  const { background, headerColor, labelColor, footerColor, borderColor, fontFamily, fontImport } = theme;
+  const { background, headerColor, labelColor, footerColor, borderColor, fontFamily, fontImport } =
+    theme;
   const rows = stats.languages;
   const paddingX = 32;
   const paddingY = 32;
@@ -20,17 +21,19 @@ export function renderOutlineLayout(
   const height = chartTop + rows.length * (barHeight + gap) + paddingY + 20;
   const maxPercent = Math.max(...rows.map((row) => row.percent), 0);
 
-  const bars = rows.map((row, index) => {
-    const y = chartTop + index * (barHeight + gap);
-    const barWidth = maxPercent === 0 ? 0 : (row.percent / maxPercent) * barAreaWidth;
-    const barX = paddingX + labelWidth + 10;
+  const bars = rows
+    .map((row, index) => {
+      const y = chartTop + index * (barHeight + gap);
+      const barWidth = maxPercent === 0 ? 0 : (row.percent / maxPercent) * barAreaWidth;
+      const barX = paddingX + labelWidth + 10;
 
-    return `
+      return `
     <text x="${paddingX}" y="${y + barHeight / 2 + 4}" font-size="13" fill="${labelColor}" font-weight="400">${row.language}</text>
     <rect x="${barX}" y="${y}" width="${barAreaWidth}" height="${barHeight}" fill="none" stroke="${borderColor}" stroke-width="1"/>
     <rect x="${barX}" y="${y}" width="${barWidth.toFixed(2)}" height="${barHeight}" fill="none" stroke="${labelColor}" stroke-width="2"/>
     <text x="${width - paddingX}" y="${y + barHeight / 2 + 4}" font-size="12" fill="${headerColor}" text-anchor="end">${row.percent.toFixed(1)}%</text>`;
-  }).join("");
+    })
+    .join("");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub language stats">
@@ -47,6 +50,11 @@ export function renderOutlineLayout(
   <text x="${paddingX}" y="${paddingY + 8}" font-size="11" fill="${headerColor}" font-weight="500" letter-spacing="1">LANGUAGE DISTRIBUTION</text>
   <line x1="${paddingX}" y1="${paddingY + 20}" x2="${width - paddingX}" y2="${paddingY + 20}" stroke="${borderColor}" stroke-width="1"/>
   <text x="${width - paddingX}" y="${paddingY + 8}" font-size="11" fill="${headerColor}" text-anchor="end">${stats.repositoryCount} repos</text>
+  ${
+    stats.window
+      ? `<text x="${paddingX}" y="${paddingY + 32}" font-size="10" fill="${footerColor}">Past ${stats.window.days} days (pushed_at)</text>`
+      : ""
+  }
 
   <!-- Bars -->
   ${bars}
