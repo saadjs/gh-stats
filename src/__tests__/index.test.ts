@@ -23,6 +23,7 @@ describe("getLanguageStats", () => {
         archived: false,
         private: false,
         languages_url: "https://api.github.com/repos/user/repo1/languages",
+        pushed_at: "2026-02-10T00:00:00Z",
       },
       {
         name: "repo2",
@@ -31,6 +32,7 @@ describe("getLanguageStats", () => {
         archived: false,
         private: false,
         languages_url: "https://api.github.com/repos/user/repo2/languages",
+        pushed_at: "2026-02-10T00:00:00Z",
       },
     ];
 
@@ -85,6 +87,7 @@ describe("getLanguageStats", () => {
         archived: false,
         private: false,
         languages_url: "https://api.github.com/repos/user/repo1/languages",
+        pushed_at: "2026-02-10T00:00:00Z",
       },
     ];
 
@@ -118,6 +121,7 @@ describe("getLanguageStats", () => {
         archived: false,
         private: false,
         languages_url: "https://api.github.com/repos/user/repo1/languages",
+        pushed_at: "2026-02-10T00:00:00Z",
       },
     ];
 
@@ -161,6 +165,7 @@ describe("getLanguageStats", () => {
         archived: false,
         private: false,
         languages_url: "https://api.github.com/repos/user/repo1/languages",
+        pushed_at: "2026-02-10T00:00:00Z",
       },
     ];
 
@@ -192,6 +197,7 @@ describe("getLanguageStats", () => {
         archived: false,
         private: false,
         languages_url: "https://api.github.com/repos/user/repo1/languages",
+        pushed_at: "2026-02-10T00:00:00Z",
       },
     ];
 
@@ -211,5 +217,62 @@ describe("getLanguageStats", () => {
 
     expect(result.languages).toHaveLength(3);
     expect(result.totalBytes).toBe(350);
+  });
+
+  it("should filter repos to past week when enabled", async () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-02-15T12:00:00Z"));
+
+    const mockRepos = [
+      {
+        name: "recent",
+        full_name: "user/recent",
+        fork: false,
+        archived: false,
+        private: false,
+        languages_url: "https://api.github.com/repos/user/recent/languages",
+        pushed_at: "2026-02-14T00:00:00Z",
+      },
+      {
+        name: "old",
+        full_name: "user/old",
+        fork: false,
+        archived: false,
+        private: false,
+        languages_url: "https://api.github.com/repos/user/old/languages",
+        pushed_at: "2026-02-01T00:00:00Z",
+      },
+      {
+        name: "nullpush",
+        full_name: "user/nullpush",
+        fork: false,
+        archived: false,
+        private: false,
+        languages_url: "https://api.github.com/repos/user/nullpush/languages",
+        pushed_at: null,
+      },
+    ];
+
+    vi.mocked(listAllRepos).mockResolvedValueOnce(mockRepos);
+    vi.mocked(fetchRepoLanguages).mockResolvedValueOnce({
+      TypeScript: 123,
+    });
+
+    const result = await getLanguageStats({
+      token: "test-token",
+      includeForks: false,
+      includeArchived: true,
+      includeMarkdown: false,
+      pastWeek: true,
+    });
+
+    expect(fetchRepoLanguages).toHaveBeenCalledTimes(1);
+    expect(result.repositoryCount).toBe(1);
+    expect(result.languages).toHaveLength(1);
+    expect(result.languages[0].language).toBe("TypeScript");
+    expect(result.window?.days).toBe(7);
+    expect(result.window?.activityField).toBe("pushed_at");
+
+    vi.useRealTimers();
   });
 });
