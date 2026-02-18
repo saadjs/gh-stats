@@ -109,6 +109,21 @@ describe("Renderers", () => {
       expect(output).toContain("5"); // repository count
     });
 
+    it("should include activity field when window metadata exists", () => {
+      const windowedStats: LanguageStatsResult = {
+        ...mockStats,
+        window: {
+          days: 7,
+          since: "2026-01-23T00:00:00.000Z",
+          until: "2026-01-30T00:00:00.000Z",
+          activityField: "changed_lines",
+        },
+      };
+
+      const output = renderSvg(windowedStats);
+      expect(output).toContain("CHANGED_LINES");
+    });
+
     it("should group remaining languages into Other for pie theme", () => {
       const pieStats: LanguageStatsResult = {
         ...mockStats,

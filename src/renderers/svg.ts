@@ -5,6 +5,7 @@ import { renderPhosphorLayout } from "./layouts/phosphor.js";
 import { renderInfraredLayout } from "./layouts/infrared.js";
 import { renderOutlineLayout } from "./layouts/outline.js";
 import { renderPieLayout } from "./layouts/pie.js";
+import { formatActivityFieldLabel } from "./utils.js";
 
 export function renderSvg(stats: LanguageStatsResult, options: SvgOptions = {}): string {
   const width = options.width ?? 600;
@@ -56,7 +57,9 @@ export function renderSvg(stats: LanguageStatsResult, options: SvgOptions = {}):
   const header = "GitHub Language Stats";
   const generatedDate = stats.generatedAt.slice(0, 10);
   const subheader = stats.window
-    ? `Past ${stats.window.days} days • Generated ${generatedDate}`
+    ? `Past ${stats.window.days} days • ${formatActivityFieldLabel(
+        stats.window.activityField
+      )} • Generated ${generatedDate}`
     : `Generated ${generatedDate}`;
   const repoSummary = `${stats.repositoryCount} repos`;
   const footerParts = [

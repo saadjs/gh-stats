@@ -10,3 +10,7 @@ export function formatBytes(bytes: number): string {
   const precision = size >= 100 ? 0 : size >= 10 ? 1 : 2;
   return `${size.toFixed(precision)} ${units[index]}`;
 }
+
+export function formatActivityFieldLabel(activityField: "pushed_at" | "changed_lines"): string {
+  return activityField === "changed_lines" ? "CHANGED_LINES" : "PUSHED_AT";
+}
