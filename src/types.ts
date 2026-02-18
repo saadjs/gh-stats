@@ -24,11 +24,29 @@ export interface LanguageStatsResult {
   includedForks: boolean;
   includedArchived: boolean;
   includedMarkdown: boolean;
+  excludedMarkupLanguages?: boolean;
+  authorFilter?: string;
+  authorPatterns?: string[];
+  analysisSource?: "api" | "clone";
+  analysisMethod?: "repo_bytes" | "changed_lines";
+  engine?: "github-linguist";
+  repoComposition?: {
+    totalBytes: number;
+    languages: LanguageStat[];
+  };
+  weeklyChurn?: {
+    totalBytes: number;
+    languages: LanguageStat[];
+  };
+  skippedRepositories?: Array<{
+    fullName: string;
+    reason: string;
+  }>;
   window?: {
     days: number;
     since: string;
     until: string;
-    activityField: "pushed_at";
+    activityField: "pushed_at" | "changed_lines";
   };
 }
 

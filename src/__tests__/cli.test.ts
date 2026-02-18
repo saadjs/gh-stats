@@ -94,6 +94,48 @@ describe("CLI Integration Tests", () => {
     expect(cliContent).toContain("--past-week");
   });
 
+  it("should support --author and --all-authors options", () => {
+    const cliContent = fs.readFileSync("src/cli.ts", "utf8");
+    expect(cliContent).toContain('case "--author"');
+    expect(cliContent).toContain('case "--all-authors"');
+  });
+
+  it("should support --include-markup-langs option", () => {
+    const cliContent = fs.readFileSync("src/cli.ts", "utf8");
+    expect(cliContent).toContain('case "--include-markup-langs"');
+  });
+
+  it("should support repo composition and cache options", () => {
+    const cliContent = fs.readFileSync("src/cli.ts", "utf8");
+    expect(cliContent).toContain('case "--include-repo-composition"');
+    expect(cliContent).toContain('case "--cache-dir"');
+    expect(cliContent).toContain('case "--no-cache"');
+  });
+
+  it("should support --source option", () => {
+    const cliContent = fs.readFileSync("src/cli.ts", "utf8");
+    expect(cliContent).toContain('case "--source"');
+    expect(cliContent).toContain("--source <api|clone>");
+  });
+
+  it("should support --clone-concurrency option", () => {
+    const cliContent = fs.readFileSync("src/cli.ts", "utf8");
+    expect(cliContent).toContain('case "--clone-concurrency"');
+    expect(cliContent).toContain("--clone-concurrency");
+  });
+
+  it("should support --tmp-dir option", () => {
+    const cliContent = fs.readFileSync("src/cli.ts", "utf8");
+    expect(cliContent).toContain('case "--tmp-dir"');
+    expect(cliContent).toContain("--tmp-dir");
+  });
+
+  it("should support --linguist-engine option", () => {
+    const cliContent = fs.readFileSync("src/cli.ts", "utf8");
+    expect(cliContent).toContain('case "--linguist-engine"');
+    expect(cliContent).toContain("--linguist-engine");
+  });
+
   it("should support --top option for limiting results", () => {
     const cliContent = fs.readFileSync("src/cli.ts", "utf8");
     expect(cliContent).toContain('case "--top"');

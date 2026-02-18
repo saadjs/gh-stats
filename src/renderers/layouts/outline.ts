@@ -1,5 +1,6 @@
 import type { LanguageStatsResult } from "../../types.js";
 import type { Theme } from "../types.js";
+import { formatActivityFieldLabel } from "../utils.js";
 
 export function renderOutlineLayout(
   stats: LanguageStatsResult,
@@ -52,7 +53,7 @@ export function renderOutlineLayout(
   <text x="${width - paddingX}" y="${paddingY + 8}" font-size="11" fill="${headerColor}" text-anchor="end">${stats.repositoryCount} repos</text>
   ${
     stats.window
-      ? `<text x="${paddingX}" y="${paddingY + 32}" font-size="10" fill="${footerColor}">Past ${stats.window.days} days (pushed_at)</text>`
+      ? `<text x="${paddingX}" y="${paddingY + 32}" font-size="10" fill="${footerColor}">Past ${stats.window.days} days (${formatActivityFieldLabel(stats.window.activityField)})</text>`
       : ""
   }
 

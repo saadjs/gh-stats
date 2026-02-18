@@ -83,7 +83,33 @@ GITHUB_TOKEN=your_token gh-stats
     "repositoryCount": { "type": "number" },
     "includedForks": { "type": "boolean" },
     "includedArchived": { "type": "boolean" },
-    "includedMarkdown": { "type": "boolean" }
+    "includedMarkdown": { "type": "boolean" },
+    "analysisSource": { "type": "string", "enum": ["api", "clone"] },
+    "analysisMethod": { "type": "string", "enum": ["repo_bytes", "changed_lines"] },
+    "engine": { "type": "string", "enum": ["github-linguist"] },
+    "skippedRepositories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fullName", "reason"],
+        "properties": {
+          "fullName": { "type": "string" },
+          "reason": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "window": {
+      "type": "object",
+      "required": ["days", "since", "until", "activityField"],
+      "properties": {
+        "days": { "type": "number" },
+        "since": { "type": "string", "format": "date-time" },
+        "until": { "type": "string", "format": "date-time" },
+        "activityField": { "type": "string", "enum": ["pushed_at", "changed_lines"] }
+      },
+      "additionalProperties": false
+    }
   },
   "additionalProperties": false
 }
@@ -199,11 +225,41 @@ Notes:
 - `--include-forks` include forked repositories (default: excluded)
 - `--exclude-archived` exclude archived repositories (default: included)
 - `--include-markdown` include Markdown/MDX in language stats (default: excluded)
-- `--past-week` only include repos pushed in the last 7 days (counts full repo language bytes)
+- `--past-week` past 7-day activity (filters to repos pushed in last 7 days)
+- `--source <api|clone>` choose analysis source (default: api)
+- `--clone-concurrency <n>` max concurrent clones in clone mode (default: 3)
+- `--tmp-dir <path>` temp directory for clone mode (default: OS temp dir)
+- `--linguist-engine <local|docker>` choose github-linguist engine (default: local)
+- `--author <username>` limit clone past-week churn to one author
+- `--all-authors` include all authors in clone past-week mode
+- `--include-markup-langs` include markup/config languages (JSON, YAML, HTML, XML, etc.)
+- `--include-repo-composition` include full repo composition alongside weekly churn in clone past-week mode
+- `--cache-dir <path>` cache directory for cloned repositories
+- `--no-cache` disable clone cache
 - `--top <n>` limit to top N languages (default: 10)
 - `--all` include all languages (overrides `--top`)
 - `--out <path>` write output to a file
 - `--help` / `-h` show help
+
+### Analysis sources
+
+`--source api` (default)
+
+- Uses GitHub's languages API (repo byte totals).
+- `--past-week` filters repos by `pushed_at`, then aggregates full repo bytes.
+
+`--source clone`
+
+- Clones repositories locally and runs `github-linguist` for language detection.
+- Requires `git` and either `github-linguist` (local) or `docker` (docker engine) on your PATH.
+- `--past-week` first filters repos by `pushed_at`, then aggregates line churn ($added + deleted$) from the last 7 days per language.
+- For author-filtered past-week mode, repos are additionally prefiltered via GitHub commits API to avoid cloning repositories with no matching recent commits.
+- By default in `--past-week`, churn is filtered to commits authored by the authenticated GitHub username.
+- Use `--all-authors` to disable author filtering, or `--author <username>` to override.
+- Markup/config languages are excluded by default; use `--include-markup-langs` to opt in.
+- Clone cache is enabled by default; use `--cache-dir` to control location or `--no-cache` to disable.
+- Use `--include-repo-composition` to add full-repository composition (`repoComposition`) alongside churn results (`weeklyChurn`).
+- Continues when a repo fails and records skipped repositories in output metadata.
 
 ## Token scopes
 

@@ -17,6 +17,16 @@ interface CliOptions {
   all?: boolean;
   out?: string;
   theme?: ThemeName;
+  source: "api" | "clone";
+  cloneConcurrency: number;
+  tmpDir?: string;
+  linguistEngine: "local" | "docker";
+  author?: string;
+  allAuthors: boolean;
+  includeMarkupLangs: boolean;
+  includeRepoComposition: boolean;
+  cacheDir?: string;
+  noCache: boolean;
 }
 
 function printHelp(): void {
@@ -30,10 +40,20 @@ Options:
   --json                  Output JSON format
   --svg                   Output SVG format
   --theme <name>          SVG theme: default, phosphor, infrared, outline, pie (default: default)
+  --source <api|clone>    Analysis source (default: api)
+  --clone-concurrency <n> Max concurrent clones in clone mode (default: 3)
+  --tmp-dir <path>        Temp directory for clone mode (default: OS temp dir)
+  --linguist-engine <val> Linguist engine: local, docker (default: local)
+  --author <username>     Author username to filter past-week commit churn
+  --all-authors           Include all authors in past-week clone analysis
   --include-forks         Include forked repositories
   --exclude-archived      Exclude archived repositories
   --include-markdown      Include Markdown/MDX in language stats
-  --past-week             Only include repos pushed in the last 7 days
+  --include-markup-langs  Include markup/config languages (JSON/YAML/HTML/XML/etc.)
+  --include-repo-composition Include full repo composition alongside weekly churn (clone + past-week)
+  --cache-dir <path>      Cache directory for cloned repositories
+  --no-cache              Disable clone cache
+  --past-week             Past 7-day activity (filters to repos pushed in last 7 days)
   --top <number>          Limit to top N languages (default: 10)
   --all                   Include all languages (overrides --top)
   --out <path>            Write output to a file
@@ -68,6 +88,13 @@ function parseArgs(argv: string[]): CliOptions {
     includeArchived: true,
     includeMarkdown: false,
     top: 10,
+    source: "api",
+    cloneConcurrency: 3,
+    linguistEngine: "local",
+    allAuthors: false,
+    includeMarkupLangs: false,
+    includeRepoComposition: false,
+    noCache: false,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -126,6 +153,45 @@ function parseArgs(argv: string[]): CliOptions {
         options.theme = argv[i + 1] as ThemeName;
         i += 1;
         break;
+      case "--source":
+        options.source = (argv[i + 1] as CliOptions["source"]) ?? "api";
+        i += 1;
+        break;
+      case "--clone-concurrency":
+        options.cloneConcurrency = Number(argv[i + 1]);
+        i += 1;
+        break;
+      case "--tmp-dir":
+        options.tmpDir = argv[i + 1];
+        i += 1;
+        break;
+      case "--linguist-engine":
+        options.linguistEngine = (argv[i + 1] as CliOptions["linguistEngine"]) ?? "local";
+        i += 1;
+        break;
+      case "--author":
+        options.author = argv[i + 1];
+        i += 1;
+        break;
+      case "--all-authors":
+        options.allAuthors = true;
+        break;
+      case "--include-markup-langs":
+        options.includeMarkupLangs = true;
+        break;
+      case "--exclude-markup-langs":
+        options.includeMarkupLangs = false;
+        break;
+      case "--include-repo-composition":
+        options.includeRepoComposition = true;
+        break;
+      case "--cache-dir":
+        options.cacheDir = argv[i + 1];
+        i += 1;
+        break;
+      case "--no-cache":
+        options.noCache = true;
+        break;
       default:
         if (arg.startsWith("--")) {
           console.error(`Unknown option: ${arg}`);
@@ -136,6 +202,26 @@ function parseArgs(argv: string[]): CliOptions {
   }
 
   return options;
+}
+
+function validateOptions(options: CliOptions): void {
+  if (options.source !== "api" && options.source !== "clone") {
+    console.error(`Unknown --source value: ${options.source}`);
+    printHelp();
+    process.exit(1);
+  }
+
+  if (options.linguistEngine !== "local" && options.linguistEngine !== "docker") {
+    console.error(`Unknown --linguist-engine value: ${options.linguistEngine}`);
+    printHelp();
+    process.exit(1);
+  }
+
+  if (!Number.isInteger(options.cloneConcurrency) || options.cloneConcurrency <= 0) {
+    console.error("--clone-concurrency must be a positive integer.");
+    printHelp();
+    process.exit(1);
+  }
 }
 
 function isLanguageStatsResult(value: unknown): value is LanguageStatsResult {
@@ -159,6 +245,7 @@ function isLanguageStatsResult(value: unknown): value is LanguageStatsResult {
 async function run(): Promise<void> {
   const argv = process.argv.slice(2);
   const options = parseArgs(argv);
+  validateOptions(options);
   let stats: LanguageStatsResult;
 
   if (options.input) {
@@ -194,6 +281,16 @@ async function run(): Promise<void> {
       pastWeek: options.pastWeek,
       top: options.top,
       all: options.all,
+      source: options.source,
+      cloneConcurrency: options.cloneConcurrency,
+      tmpDir: options.tmpDir,
+      linguistEngine: options.linguistEngine,
+      author: options.author,
+      allAuthors: options.allAuthors,
+      includeMarkupLangs: options.includeMarkupLangs,
+      includeRepoComposition: options.includeRepoComposition,
+      cacheDir: options.cacheDir,
+      noCache: options.noCache,
     });
   }
 

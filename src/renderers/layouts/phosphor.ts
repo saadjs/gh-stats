@@ -1,5 +1,6 @@
 import type { LanguageStatsResult } from "../../types.js";
 import type { Theme } from "../types.js";
+import { formatActivityFieldLabel } from "../utils.js";
 
 export function renderPhosphorDefs(): string {
   return `
@@ -97,7 +98,9 @@ export function renderPhosphorLayout(
   // Footer stats
   const footerY = listStartY + rows.length * 20 + 20;
   const finalHeight = footerY + 25;
-  const windowLine = stats.window ? `│ Past ${stats.window.days} days (pushed_at)` : "";
+  const windowLine = stats.window
+    ? `│ Past ${stats.window.days} days (${formatActivityFieldLabel(stats.window.activityField)})`
+    : "";
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${width}" height="${finalHeight}" viewBox="0 0 ${width} ${finalHeight}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub language stats">

@@ -1,5 +1,6 @@
 import type { LanguageStatsResult } from "../../types.js";
 import type { Theme } from "../types.js";
+import { formatActivityFieldLabel } from "../utils.js";
 
 export function renderInfraredDefs(): string {
   return `
@@ -170,7 +171,9 @@ export function renderInfraredLayout(
   <text x="20" y="48" font-size="10" fill="${footerColor}" letter-spacing="1">${stats.repositoryCount} repositories scanned</text>
   ${
     stats.window
-      ? `<text x="20" y="62" font-size="10" fill="${footerColor}" letter-spacing="1">PAST ${stats.window.days} DAYS • PUSHED_AT</text>`
+      ? `<text x="20" y="62" font-size="10" fill="${footerColor}" letter-spacing="1">PAST ${stats.window.days} DAYS • ${formatActivityFieldLabel(
+          stats.window.activityField
+        )}</text>`
       : ""
   }
 
